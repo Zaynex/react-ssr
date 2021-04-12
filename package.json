@@ -4,16 +4,35 @@
   "description": "react ssr",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon DEBUG=koa* node --harmony index.js"
+    "build:static": "webpack",
+    "start:web": "webpack serve",
+    "dev": "nodemon DEBUG=koa* node --harmony index.js",
+    "build:server": "NODE_ENV=development webpack -w --config webpack.server.config.js",
+    "start:server": "nodemon server/build/app.js"
   },
   "author": "zaynex",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.13.10",
+    "@koa/router": "^10.0.0",
+    "core-js": "^3.10.1",
     "koa": "^2.13.1",
+    "koa-static": "^5.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "@babel/core": "^7.13.15",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^5.3.1",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.31.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
